@@ -1,7 +1,33 @@
 version: '3'
 services:
+  db:
+    image: postgres
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    volumes:
+    - pgdata:/var/lib/postgresql/data
+    ports:
+    - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+    - 8080:8080
+    links:
+    - db
+
   app:
     build: 
       context: ./
       dockerfile: ./Dockerfile
-    image: jskonst/courseapp
+    image: jskonst/keymaster
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
+    external: true

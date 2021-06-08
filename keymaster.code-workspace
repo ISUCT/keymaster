@@ -12,9 +12,6 @@
 			"name": "Client",
 			"path": "client"
 		},
-		{
-			"path": "CourseApp.Tests"
-		},
 	],
 	"settings": {}
 }

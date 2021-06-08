@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace CourseApp.Tests
+namespace WebApi.Tests
 {
     public class DemoTest
     {

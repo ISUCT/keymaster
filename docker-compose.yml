@@ -18,15 +18,15 @@ services:
     links:
     - db
 
-  app:
-    build: 
-      context: ./
-      dockerfile: ./Dockerfile
-    image: jskonst/keymaster
-    ports:
-      - 5000:5000
-    depends_on:
-      - db
+  # app:
+  #   build: 
+  #     context: ./
+  #     dockerfile: ./Dockerfile
+  #   image: jskonst/keymaster
+  #   ports:
+  #     - 5000:5000
+  #   depends_on:
+  #     - db
 
 volumes:
   pgdata:

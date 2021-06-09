@@ -15,12 +15,12 @@ namespace WebApi
     {
         public static void Main(string[] args)
         {
-            using (ApplicationContext db = new ApplicationContext())
+            /*using (ApplicationContext db = new ApplicationContext())
             {
                 Teacher jsconst = new Teacher { FullName = "Konstantinov Yevgeniy Sergeyevich", PersonalKey = "Konstantinov Yevgeniy Sergeyevich12345" };
                 db.Teachers.Add(jsconst);
                 db.SaveChanges();
-            }
+            }*/
 
                 CreateHostBuilder(args).Build().Run();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace WebApi.Models.DBManager
 {
@@ -17,7 +18,11 @@ namespace WebApi.Models.DBManager
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Keymaster;Username=postgres;Password=postgres");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+           .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+           .AddJsonFile("appsettings.json")
+           .Build();
+            optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
         }
     }
 }

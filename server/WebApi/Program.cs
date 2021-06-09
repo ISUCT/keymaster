@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using WebApi.Models;
+using WebApi.Models.DBManager;
 
 namespace WebApi
 {
@@ -13,7 +15,16 @@ namespace WebApi
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Teacher jsconst = new Teacher { FullName = "Konstantinov Yevgeniy Sergeyevich", PersonalKey = "Konstantinov Yevgeniy Sergeyevich12345" };
+                db.Teachers.Add(jsconst);
+                db.SaveChanges();
+            }
+
+                CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

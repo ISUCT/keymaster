@@ -15,8 +15,6 @@ namespace WebApi
     {
         public static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
             using (ApplicationContext db = new ApplicationContext())
             {
                 Teacher jsconst = new Teacher { FullName = "Konstantinov Yevgeniy Sergeyevich", PersonalKey = "Konstantinov Yevgeniy Sergeyevich12345" };

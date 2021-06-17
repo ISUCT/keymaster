@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package com.google.mlkit.vision.demo.java.posedetector.classification;
-
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.average;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.l2Norm2D;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.multiplyAll;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.subtract;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.subtractAll;
+package com.google.mlkit.vision.demo.kotlin.posedetector.classification;
 
 import com.google.mlkit.vision.common.PointF3D;
 import com.google.mlkit.vision.pose.PoseLandmark;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.average;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.l2Norm2D;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.multiplyAll;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.subtract;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.subtractAll;
 
 /**
  * Generates embedding for given list of Pose landmarks.

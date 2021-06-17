@@ -44,8 +44,6 @@ import com.google.mlkit.vision.demo.GraphicOverlay
 import com.google.mlkit.vision.demo.R
 import com.google.mlkit.vision.demo.VisionImageProcessor
 import com.google.mlkit.vision.demo.kotlin.barcodescanner.BarcodeScannerProcessor
-import com.google.mlkit.vision.demo.kotlin.facedetector.FaceDetectorProcessor
-import com.google.mlkit.vision.demo.kotlin.labeldetector.LabelDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.objectdetector.ObjectDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.posedetector.PoseDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.segmenter.SegmenterProcessor
@@ -170,17 +168,8 @@ class StillImageActivity : AppCompatActivity() {
   private fun populateFeatureSelector() {
     val featureSpinner = findViewById<Spinner>(R.id.feature_selector)
     val options: MutableList<String> = ArrayList()
-    options.add(OBJECT_DETECTION)
-    options.add(OBJECT_DETECTION_CUSTOM)
-    options.add(CUSTOM_AUTOML_OBJECT_DETECTION)
-    options.add(FACE_DETECTION)
+
     options.add(BARCODE_SCANNING)
-    options.add(TEXT_RECOGNITION)
-    options.add(IMAGE_LABELING)
-    options.add(IMAGE_LABELING_CUSTOM)
-    options.add(CUSTOM_AUTOML_LABELING)
-    options.add(POSE_DETECTION)
-    options.add(SELFIE_SEGMENTATION)
 
     // Creating adapter for featureSpinner
     val dataAdapter =
@@ -423,55 +412,12 @@ class StillImageActivity : AppCompatActivity() {
               customAutoMLODTOptions
             )
         }
-        FACE_DETECTION ->
-          imageProcessor =
-            FaceDetectorProcessor(this, null)
         BARCODE_SCANNING ->
           imageProcessor =
             BarcodeScannerProcessor(this)
         TEXT_RECOGNITION ->
           imageProcessor =
             TextRecognitionProcessor(this)
-        IMAGE_LABELING ->
-          imageProcessor =
-            LabelDetectorProcessor(
-              this,
-              ImageLabelerOptions.DEFAULT_OPTIONS
-            )
-        IMAGE_LABELING_CUSTOM -> {
-          Log.i(
-            TAG,
-            "Using Custom Image Label Detector Processor"
-          )
-          val localClassifier = LocalModel.Builder()
-            .setAssetFilePath("custom_models/bird_classifier.tflite")
-            .build()
-          val customImageLabelerOptions =
-            CustomImageLabelerOptions.Builder(localClassifier).build()
-          imageProcessor =
-            LabelDetectorProcessor(
-              this,
-              customImageLabelerOptions
-            )
-        }
-        CUSTOM_AUTOML_LABELING -> {
-          Log.i(
-            TAG,
-            "Using Custom AutoML Image Label Detector Processor"
-          )
-          val customAutoMLLabelLocalModel = LocalModel.Builder()
-            .setAssetManifestFilePath("automl/manifest.json")
-            .build()
-          val customAutoMLLabelOptions = CustomImageLabelerOptions
-            .Builder(customAutoMLLabelLocalModel)
-            .setConfidenceThreshold(0f)
-            .build()
-          imageProcessor =
-            LabelDetectorProcessor(
-              this,
-              customAutoMLLabelOptions
-            )
-        }
         POSE_DETECTION -> {
           val poseDetectorOptions =
             PreferenceUtils.getPoseDetectorOptionsForStillImage(this)

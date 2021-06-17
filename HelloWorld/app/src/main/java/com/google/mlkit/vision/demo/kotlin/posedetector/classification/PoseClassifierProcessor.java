@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
-package com.google.mlkit.vision.demo.java.posedetector.classification;
+package com.google.mlkit.vision.demo.kotlin.posedetector.classification;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Looper;
 import android.util.Log;
+
 import androidx.annotation.WorkerThread;
+
 import com.google.common.base.Preconditions;
 import com.google.mlkit.vision.pose.Pose;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

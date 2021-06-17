@@ -14,24 +14,26 @@
  * limitations under the License.
  */
 
-package com.google.mlkit.vision.demo.java.posedetector.classification;
-
-import static com.google.mlkit.vision.demo.java.posedetector.classification.PoseEmbedding.getPoseEmbedding;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.maxAbs;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.multiply;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.multiplyAll;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.subtract;
-import static com.google.mlkit.vision.demo.java.posedetector.classification.Utils.sumAbs;
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+package com.google.mlkit.vision.demo.kotlin.posedetector.classification;
 
 import android.util.Pair;
+
 import com.google.mlkit.vision.common.PointF3D;
 import com.google.mlkit.vision.pose.Pose;
 import com.google.mlkit.vision.pose.PoseLandmark;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
+
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.PoseEmbedding.getPoseEmbedding;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.maxAbs;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.multiply;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.multiplyAll;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.subtract;
+import static com.google.mlkit.vision.demo.kotlin.posedetector.classification.Utils.sumAbs;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 /**
  * Classifies {link Pose} based on given {@link PoseSample}s.
@@ -117,15 +119,15 @@ public class PoseClassifier {
       float flippedMax = 0;
       for (int i = 0; i < embedding.size(); i++) {
         originalMax =
-            max(
-                originalMax,
-                maxAbs(multiply(subtract(embedding.get(i), sampleEmbedding.get(i)), axesWeights)));
+                max(
+                        originalMax,
+                        maxAbs(multiply(subtract(embedding.get(i), sampleEmbedding.get(i)), axesWeights)));
         flippedMax =
-            max(
-                flippedMax,
-                maxAbs(
-                    multiply(
-                        subtract(flippedEmbedding.get(i), sampleEmbedding.get(i)), axesWeights)));
+                max(
+                        flippedMax,
+                        maxAbs(
+                                multiply(
+                                        subtract(flippedEmbedding.get(i), sampleEmbedding.get(i)), axesWeights)));
       }
       // Set the max distance as min of original and flipped max distance.
       maxDistances.add(new Pair<>(poseSample, min(originalMax, flippedMax)));

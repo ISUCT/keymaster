@@ -40,8 +40,6 @@ import com.google.mlkit.vision.demo.CameraSourcePreview
 import com.google.mlkit.vision.demo.GraphicOverlay
 import com.google.mlkit.vision.demo.R
 import com.google.mlkit.vision.demo.kotlin.barcodescanner.BarcodeScannerProcessor
-import com.google.mlkit.vision.demo.kotlin.facedetector.FaceDetectorProcessor
-import com.google.mlkit.vision.demo.kotlin.labeldetector.LabelDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.objectdetector.ObjectDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.posedetector.PoseDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.segmenter.SegmenterProcessor
@@ -210,57 +208,10 @@ class LivePreviewActivity :
           )
           cameraSource!!.setMachineLearningFrameProcessor(TextRecognitionProcessor(this))
         }
-        FACE_DETECTION -> {
-          Log.i(TAG, "Using Face Detector Processor")
-          val faceDetectorOptions =
-            PreferenceUtils.getFaceDetectorOptionsForLivePreview(this)
-          cameraSource!!.setMachineLearningFrameProcessor(
-            FaceDetectorProcessor(this, faceDetectorOptions)
-          )
-        }
         BARCODE_SCANNING -> {
           Log.i(TAG, "Using Barcode Detector Processor")
           cameraSource!!.setMachineLearningFrameProcessor(
             BarcodeScannerProcessor(this)
-          )
-        }
-        IMAGE_LABELING -> {
-          Log.i(
-            TAG,
-            "Using Image Label Detector Processor"
-          )
-          cameraSource!!.setMachineLearningFrameProcessor(
-            LabelDetectorProcessor(this, ImageLabelerOptions.DEFAULT_OPTIONS)
-          )
-        }
-        IMAGE_LABELING_CUSTOM -> {
-          Log.i(
-            TAG,
-            "Using Custom Image Label Detector Processor"
-          )
-          val localClassifier = LocalModel.Builder()
-            .setAssetFilePath("custom_models/bird_classifier.tflite")
-            .build()
-          val customImageLabelerOptions =
-            CustomImageLabelerOptions.Builder(localClassifier).build()
-          cameraSource!!.setMachineLearningFrameProcessor(
-            LabelDetectorProcessor(this, customImageLabelerOptions)
-          )
-        }
-        CUSTOM_AUTOML_LABELING -> {
-          Log.i(
-            TAG,
-            "Using Custom AutoML Image Label Detector Processor"
-          )
-          val customAutoMLLabelLocalModel = LocalModel.Builder()
-            .setAssetManifestFilePath("automl/manifest.json")
-            .build()
-          val customAutoMLLabelOptions = CustomImageLabelerOptions
-            .Builder(customAutoMLLabelLocalModel)
-            .setConfidenceThreshold(0f)
-            .build()
-          cameraSource!!.setMachineLearningFrameProcessor(
-            LabelDetectorProcessor(this, customAutoMLLabelOptions)
           )
         }
         POSE_DETECTION -> {

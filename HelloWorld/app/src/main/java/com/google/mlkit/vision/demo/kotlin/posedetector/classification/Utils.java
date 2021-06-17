@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.mlkit.vision.demo.java.posedetector.classification;
-
-import static com.google.common.primitives.Floats.max;
+package com.google.mlkit.vision.demo.kotlin.posedetector.classification;
 
 import com.google.mlkit.vision.common.PointF3D;
+
 import java.util.List;
 import java.util.ListIterator;
+
+import static com.google.common.primitives.Floats.max;
 
 /**
  * Utility methods for operations on {@link PointF3D}.

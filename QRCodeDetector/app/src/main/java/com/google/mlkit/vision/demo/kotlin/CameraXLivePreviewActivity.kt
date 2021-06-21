@@ -47,21 +47,16 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.common.annotation.KeepName
 import com.google.mlkit.common.MlKitException
-import com.google.mlkit.common.model.LocalModel
 import com.google.mlkit.vision.demo.CameraXViewModel
 import com.google.mlkit.vision.demo.GraphicOverlay
 import com.google.mlkit.vision.demo.R
 import com.google.mlkit.vision.demo.VisionImageProcessor
 import com.google.mlkit.vision.demo.kotlin.barcodescanner.BarcodeScannerProcessor
-import com.google.mlkit.vision.demo.kotlin.objectdetector.ObjectDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.posedetector.PoseDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.segmenter.SegmenterProcessor
-import com.google.mlkit.vision.demo.kotlin.textdetector.TextRecognitionProcessor
 import com.google.mlkit.vision.demo.preference.PreferenceUtils
 import com.google.mlkit.vision.demo.preference.SettingsActivity
 import com.google.mlkit.vision.demo.preference.SettingsActivity.LaunchSource
-import com.google.mlkit.vision.label.custom.CustomImageLabelerOptions
-import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 import java.util.ArrayList
 
 /** Live preview demo app for ML Kit APIs using CameraX.  */

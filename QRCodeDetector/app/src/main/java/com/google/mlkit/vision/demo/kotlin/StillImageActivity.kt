@@ -47,12 +47,9 @@ import com.google.mlkit.vision.demo.kotlin.barcodescanner.BarcodeScannerProcesso
 import com.google.mlkit.vision.demo.kotlin.objectdetector.ObjectDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.posedetector.PoseDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.segmenter.SegmenterProcessor
-import com.google.mlkit.vision.demo.kotlin.textdetector.TextRecognitionProcessor
 import com.google.mlkit.vision.demo.preference.PreferenceUtils
 import com.google.mlkit.vision.demo.preference.SettingsActivity
 import com.google.mlkit.vision.demo.preference.SettingsActivity.LaunchSource
-import com.google.mlkit.vision.label.custom.CustomImageLabelerOptions
-import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 import java.io.IOException
 import java.util.ArrayList
 import kotlin.math.max
@@ -415,9 +412,6 @@ class StillImageActivity : AppCompatActivity() {
         BARCODE_SCANNING ->
           imageProcessor =
             BarcodeScannerProcessor(this)
-        TEXT_RECOGNITION ->
-          imageProcessor =
-            TextRecognitionProcessor(this)
         POSE_DETECTION -> {
           val poseDetectorOptions =
             PreferenceUtils.getPoseDetectorOptionsForStillImage(this)

@@ -1,8 +1,4 @@
-# ML Kit Vision Quickstart Sample App
-
-## Introduction
-
-This ML Kit Quickstart app demonstrates how to use and integrate various vision based ML Kit features into your app.
+QR Code detector
 
 ## Feature List
 

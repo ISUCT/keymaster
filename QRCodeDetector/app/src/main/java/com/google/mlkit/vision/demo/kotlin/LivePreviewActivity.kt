@@ -43,7 +43,6 @@ import com.google.mlkit.vision.demo.kotlin.barcodescanner.BarcodeScannerProcesso
 import com.google.mlkit.vision.demo.kotlin.objectdetector.ObjectDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.posedetector.PoseDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.segmenter.SegmenterProcessor
-import com.google.mlkit.vision.demo.kotlin.textdetector.TextRecognitionProcessor
 import com.google.mlkit.vision.demo.preference.PreferenceUtils
 import com.google.mlkit.vision.demo.preference.SettingsActivity
 import com.google.mlkit.vision.demo.preference.SettingsActivity.LaunchSource
@@ -82,17 +81,7 @@ class LivePreviewActivity :
 
     val spinner = findViewById<Spinner>(R.id.spinner)
     val options: MutableList<String> = ArrayList()
-    options.add(OBJECT_DETECTION)
-    options.add(OBJECT_DETECTION_CUSTOM)
-    options.add(CUSTOM_AUTOML_OBJECT_DETECTION)
-    options.add(FACE_DETECTION)
-    options.add(TEXT_RECOGNITION)
     options.add(BARCODE_SCANNING)
-    options.add(IMAGE_LABELING)
-    options.add(IMAGE_LABELING_CUSTOM)
-    options.add(CUSTOM_AUTOML_LABELING)
-    options.add(POSE_DETECTION)
-    options.add(SELFIE_SEGMENTATION)
 
     // Creating adapter for spinner
     val dataAdapter =
@@ -200,13 +189,6 @@ class LivePreviewActivity :
           cameraSource!!.setMachineLearningFrameProcessor(
             ObjectDetectorProcessor(this, customAutoMLODTOptions)
           )
-        }
-        TEXT_RECOGNITION -> {
-          Log.i(
-            TAG,
-            "Using on-device Text recognition Processor"
-          )
-          cameraSource!!.setMachineLearningFrameProcessor(TextRecognitionProcessor(this))
         }
         BARCODE_SCANNING -> {
           Log.i(TAG, "Using Barcode Detector Processor")

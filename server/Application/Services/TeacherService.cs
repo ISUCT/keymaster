@@ -21,7 +21,7 @@
             return _teacherRepository.GetTeachers().Select(x => new TeacherDto(x)).ToList();
         }
 
-        public TeacherDto InsetTeacher(TeacherCreateRequestDto teacher)
+        public TeacherDto InsertTeacher(TeacherCreateRequestDto teacher)
         {
             var createdTeacher = new TeacherDto(_teacherRepository.InsertTeacher(teacher.ToModel()));
             return createdTeacher;

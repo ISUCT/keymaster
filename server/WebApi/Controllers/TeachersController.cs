@@ -29,7 +29,7 @@
         [HttpPost]
         public ActionResult<TeacherDto> Insert([FromBody] TeacherCreateRequestDto teacher)
         {
-            return this.Ok(_teacherService.InsetTeacher(teacher));
+            return this.Ok(_teacherService.InsertTeacher(teacher));
         }
     }
 }

@@ -8,6 +8,6 @@
     {
         List<TeacherDto> GetTeachers();
 
-        TeacherDto InsetTeacher(TeacherCreateRequestDto teacher);
+        TeacherDto InsertTeacher(TeacherCreateRequestDto teacher);
     }
 }

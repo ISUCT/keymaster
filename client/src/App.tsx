@@ -3,14 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 import { render } from '@testing-library/react';
 import MyTable from './components/MyTable'
-import MyHeader from './components/MyHeader'
+import Header from './components/Header'
 import TeachersTable from './components/TeachersTable'
 
 class App extends React.Component{
   render(){
     return(
       <>
-        <MyHeader/>
+        <Header/>
         <MyTable/>
         <TeachersTable/>
       </>

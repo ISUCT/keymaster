@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { getRooms } from "./TeacherService"
 import { DataGrid, GridColDef, GridValueGetterParams } from '@material-ui/data-grid';
 
 const columns: GridColDef[] = [
@@ -19,20 +20,13 @@ const columns: GridColDef[] = [
  
 ];
 
-const rows = [
-  { id: 1, roomNumber: 'A100' },
-  { id: 2, roomNumber: 'A102' },
-  { id: 3, roomNumber: 'A103' },
-  { id: 4, roomNumber: 'A201' },
-  { id: 5, roomNumber: 'A310' },
-  { id: 6, roomNumber: 'A202' },
-  { id: 7, roomNumber: 'A107' },
-];
+const rows = getRooms
+
 
 export default function DataGridDemo() {
   return (
     <div style={{ height: 400, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+      <DataGrid rows={getRooms()} columns={columns} pageSize={5} checkboxSelection />
     </div>
   );
 }

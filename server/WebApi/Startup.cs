@@ -36,6 +36,8 @@ namespace WebApi
 
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IKeyService, KeyService>();
+            services.AddScoped<IKeyRepository, KeyRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

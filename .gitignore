@@ -66,7 +66,8 @@ build/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
-
+*.png
+*.tflite
 *_i.c
 *_p.c
 *.ilk

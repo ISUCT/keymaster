@@ -24,7 +24,7 @@
 
         public Teacher GetTeacherById(int id)
         {
-            return context.Teachers.FirstOrDefault(t => t.Id == id);
+            return context.Teachers.AsNoTracking().FirstOrDefault(t => t.Id == id);
         }
 
         IQueryable<Teacher> ITeacherRepository.GetTeachers()

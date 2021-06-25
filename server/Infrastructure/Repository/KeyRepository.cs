@@ -24,7 +24,7 @@
 
         IQueryable<Key> IKeyRepository.GetKeys()
         {
-            return context.Keys.Include(u => u.Teacher).AsNoTracking();
+            return context.Keys.AsNoTracking();
         }
     }
 }

@@ -7,7 +7,5 @@
         public string Classroom { get; set; }
 
         public string QR { get; set; }
-
-        public Teacher Teacher { get; set; }
     }
 }

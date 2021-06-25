@@ -9,10 +9,6 @@
             this.Id = key.Id;
             this.Classroom = key.Classroom;
             this.QR = key.QR;
-            if (key.Teacher != null)
-            {
-                this.TeacherID = key.Teacher.Id;
-            }
         }
 
         public KeyDto()
@@ -24,7 +20,5 @@
         public string Classroom { get; set; }
 
         public string QR { get; set; }
-
-        public int TeacherID { get; set; }
     }
 }

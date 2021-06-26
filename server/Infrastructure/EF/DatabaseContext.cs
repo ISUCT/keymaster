@@ -14,6 +14,8 @@
 
         public DbSet<Key> Keys { get; set; }
 
+        public DbSet<Assignment> Assignments { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }

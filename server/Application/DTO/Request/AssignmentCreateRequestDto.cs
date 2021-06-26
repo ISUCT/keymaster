@@ -16,6 +16,7 @@
                 KeyID = this.TeacherID,
                 TeacherID = this.KeyID,
                 Date = System.DateTime.Now,
+                IsReturned = false,
             };
         }
     }

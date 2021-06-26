@@ -9,5 +9,7 @@
         public int KeyID { get; set; }
 
         public int TeacherID { get; set; }
+
+        public bool IsReturned { get; set; }
     }
 }

@@ -13,8 +13,8 @@
         {
             return new Assignment()
             {
-                KeyID = this.TeacherID,
-                TeacherID = this.KeyID,
+                KeyID = this.KeyID,
+                TeacherID = this.TeacherID,
                 Date = System.DateTime.Now,
                 IsReturned = false,
             };

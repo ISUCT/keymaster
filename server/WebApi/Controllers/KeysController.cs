@@ -11,12 +11,12 @@
     [Route("api/[controller]")]
     public class KeysController : ControllerBase
     {
-        private readonly ILogger<KeysController> logger;
+        private readonly ILogger<KeysController> _logger;
         private IKeyService _keyService;
 
         public KeysController(ILogger<KeysController> logger, IKeyService keyService)
         {
-            this.logger = logger;
+            _logger = logger;
             _keyService = keyService;
         }
 

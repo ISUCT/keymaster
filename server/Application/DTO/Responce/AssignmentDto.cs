@@ -8,8 +8,8 @@
         {
             this.Id = assignment.Id;
             this.Date = assignment.Date;
-            this.KeyID = assignment.KeyID;
-            this.TeacherID = assignment.TeacherID;
+            this.KeyID = assignment.Key.Id;
+            this.TeacherID = assignment.Teacher.Id;
             this.ReturnDate = assignment.ReturnDate;
         }
 

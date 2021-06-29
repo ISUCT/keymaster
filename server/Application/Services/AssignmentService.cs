@@ -23,6 +23,7 @@
 
         public AssignmentDto InsertAssignment(AssignmentCreateRequestDto assignment)
         {
+            var dtAssignment = assignment.ToModel();
             var createdAssignment = new AssignmentDto(_assignmentRepository.InsertAssignment(assignment.ToModel()));
             return createdAssignment;
         }

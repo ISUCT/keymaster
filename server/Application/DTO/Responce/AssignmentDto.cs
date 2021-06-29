@@ -10,7 +10,7 @@
             this.Date = assignment.Date;
             this.KeyID = assignment.KeyID;
             this.TeacherID = assignment.TeacherID;
-            this.IsReturned = assignment.IsReturned;
+            this.ReturnDate = assignment.ReturnDate;
         }
 
         public AssignmentDto()
@@ -25,6 +25,6 @@
 
         public int TeacherID { get; set; }
 
-        public bool IsReturned { get; set; }
+        public System.DateTime ReturnDate { get; set; }
     }
 }

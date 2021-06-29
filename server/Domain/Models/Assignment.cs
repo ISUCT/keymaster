@@ -10,6 +10,6 @@
 
         public int TeacherID { get; set; }
 
-        public bool IsReturned { get; set; }
+        public System.DateTime ReturnDate { get; set; }
     }
 }

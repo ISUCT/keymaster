@@ -7,6 +7,8 @@
     {
         IQueryable<Key> GetKeys();
 
+        public Key GetKeyById(int id);
+
         Key InsertKey(Key key);
     }
 }

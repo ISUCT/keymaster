@@ -22,6 +22,11 @@
             return entity.Entity;
         }
 
+        public Key GetKeyById(int id)
+        {
+            return context.Keys.AsNoTracking().FirstOrDefault(t => t.Id == id);
+        }
+
         IQueryable<Key> IKeyRepository.GetKeys()
         {
             return context.Keys.AsNoTracking();

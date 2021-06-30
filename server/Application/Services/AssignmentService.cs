@@ -11,9 +11,15 @@
     {
         private IAssignmentRepository _assignmentRepository;
 
-        public AssignmentService(IAssignmentRepository assignmentRepository)
+        private IKeyRepository _keyRepository;
+
+        private ITeacherRepository _teacherRepository;
+
+        public AssignmentService(IAssignmentRepository assignmentRepository, IKeyRepository keyRepository, ITeacherRepository teacherRepository)
         {
             _assignmentRepository = assignmentRepository;
+            _keyRepository = keyRepository;
+            _teacherRepository = teacherRepository;
         }
 
         public List<AssignmentDto> GetAssignments()
@@ -24,7 +30,9 @@
         public AssignmentDto InsertAssignment(AssignmentCreateRequestDto assignment)
         {
             var dtAssignment = assignment.ToModel();
-            var createdAssignment = new AssignmentDto(_assignmentRepository.InsertAssignment(assignment.ToModel()));
+            dtAssignment.Key = _keyRepository.GetKeyById(assignment.KeyID);
+            dtAssignment.Teacher = _teacherRepository.GetTeacherById(assignment.TeacherID);
+            var createdAssignment = new AssignmentDto(_assignmentRepository.InsertAssignment(dtAssignment));
             return createdAssignment;
         }
     }

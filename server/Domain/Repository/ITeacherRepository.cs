@@ -7,6 +7,8 @@
     {
         IQueryable<Teacher> GetTeachers();
 
+        Teacher GetTeacherById(int id);
+
         Teacher InsertTeacher(Teacher teacher);
     }
 }

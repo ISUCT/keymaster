@@ -11,12 +11,12 @@
     [Route("api/[controller]")]
     public class TeachersController : ControllerBase
     {
-        private readonly ILogger<TeachersController> logger;
+        private readonly ILogger<TeachersController> _logger;
         private ITeacherService _teacherService;
 
         public TeachersController(ILogger<TeachersController> logger, ITeacherService teacherService)
         {
-            this.logger = logger;
+            _logger = logger;
             _teacherService = teacherService;
         }
 

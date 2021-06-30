@@ -12,6 +12,8 @@
 
         public DbSet<Teacher> Teachers { get; set; }
 
+        public DbSet<Key> Keys { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }

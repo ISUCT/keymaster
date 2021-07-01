@@ -6,30 +6,25 @@
     using Infrastructure.EF;
     using Microsoft.EntityFrameworkCore;
 
-    public class KeyRepository : IKeyRepository
+    public class AssignmentRepository : IAssignmentRepository
     {
         private DatabaseContext context;
 
-        public KeyRepository(DatabaseContext context)
+        public AssignmentRepository(DatabaseContext context)
         {
             this.context = context;
         }
 
-        public Key InsertKey(Key key)
+        public Assignment InsertAssignment(Assignment assignment)
         {
-            var entity = context.Add(key);
+            var entity = context.Add(assignment);
             context.SaveChanges();
             return entity.Entity;
         }
 
-        public Key GetKeyById(int id)
+        IQueryable<Assignment> IAssignmentRepository.GetAssignments()
         {
-            return context.Keys.AsNoTracking().FirstOrDefault(t => t.Id == id);
-        }
-
-        IQueryable<Key> IKeyRepository.GetKeys()
-        {
-            return context.Keys.AsNoTracking();
+            return context.Assignments.AsNoTracking();
         }
     }
 }

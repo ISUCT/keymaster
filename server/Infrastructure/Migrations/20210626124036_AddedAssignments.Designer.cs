@@ -3,15 +3,17 @@ using System;
 using Infrastructure.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210626124036_AddedAssignments")]
+    partial class AddedAssignments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,20 +31,13 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("KeyId")
+                    b.Property<int>("KeyID")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("ReturnDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<int?>("TeacherId")
+                    b.Property<int>("TeacherID")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("KeyId");
-
-                    b.HasIndex("TeacherId");
 
                     b.ToTable("Assignments");
                 });
@@ -81,21 +76,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teachers");
-                });
-
-            modelBuilder.Entity("Domain.Models.Assignment", b =>
-                {
-                    b.HasOne("Domain.Models.Key", "Key")
-                        .WithMany()
-                        .HasForeignKey("KeyId");
-
-                    b.HasOne("Domain.Models.Teacher", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId");
-
-                    b.Navigation("Key");
-
-                    b.Navigation("Teacher");
                 });
 #pragma warning restore 612, 618
         }
